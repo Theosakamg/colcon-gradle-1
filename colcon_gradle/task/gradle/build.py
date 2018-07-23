@@ -85,5 +85,5 @@ class GradleBuildTask(TaskExtensionPoint):
 
         # invoke build step
         return await check_call(
-            self.context, cmd, cwd=args.build_base, env=env)
+            self.context, cmd, cwd=args.path, env=env)
 

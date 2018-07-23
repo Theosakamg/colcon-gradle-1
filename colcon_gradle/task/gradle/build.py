@@ -81,7 +81,9 @@ class GradleBuildTask(TaskExtensionPoint):
             cmd += ['assemble']
 
         # Gradle Arguments
-        cmd += (args.gradle_args or [])
+        if args.gradle_args:
+            for arg in args.gradle_args:
+                cmd += arg.split()
 
         # invoke build step
         return await check_call(
